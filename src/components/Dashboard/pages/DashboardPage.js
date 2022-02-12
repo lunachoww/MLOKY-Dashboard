@@ -36,10 +36,16 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography className={classes.cardTitle} gutterBottom>
-									$MLOKY Holdings
+								<Typography
+									className={classes.cardTitle}
+									gutterBottom
+								>
+									$MLOKY Holdings:
 								</Typography>
-								<Typography className={classes.cardDesc} color="text.secondary">
+								<Typography
+									className={classes.cardDesc}
+									color="text.secondary"
+								>
 									0
 								</Typography>
 							</CardContent>
@@ -48,10 +54,16 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography className={classes.cardTitle} gutterBottom>
-									$MLOKY Holdings
+								<Typography
+									className={classes.cardTitle}
+									gutterBottom
+								>
+									$BUSD/$LUCHOW Holdings:
 								</Typography>
-								<Typography className={classes.cardDesc} color="text.secondary">
+								<Typography
+									className={classes.cardDesc}
+									color="text.secondary"
+								>
 									0
 								</Typography>
 							</CardContent>
@@ -60,10 +72,16 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography className={classes.cardTitle} gutterBottom>
-									$MLOKY Holdings
+								<Typography
+									className={classes.cardTitle}
+									gutterBottom
+								>
+									$BUSD/$LUCHOW Earnings:
 								</Typography>
-								<Typography className={classes.cardDesc} color="text.secondary">
+								<Typography
+									className={classes.cardDesc}
+									color="text.secondary"
+								>
 									0
 								</Typography>
 							</CardContent>
@@ -72,10 +90,16 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography className={classes.cardTitle} gutterBottom>
-									$MLOKY Holdings
+								<Typography
+									className={classes.cardTitle}
+									gutterBottom
+								>
+									Total $BUSD/$LUCHOW Distributed:
 								</Typography>
-								<Typography className={classes.cardDesc} color="text.secondary">
+								<Typography
+									className={classes.cardDesc}
+									color="text.secondary"
+								>
 									0
 								</Typography>
 							</CardContent>
@@ -88,7 +112,10 @@ const DashboardPage = () => {
 						<Grid item xs={12} lg={7}>
 							<Card className={classes.cardRoot}>
 								<CardContent>
-									<Typography className={classes.cardTitle} gutterBottom>
+									<Typography
+										className={classes.cardTitle}
+										gutterBottom
+									>
 										$BUSD/$LUCHOW not claimed:
 									</Typography>
 									<Box sx={{ justifyContent: "center" }}>
@@ -117,11 +144,18 @@ const DashboardPage = () => {
 								<Grid item>
 									<Link
 										href="#"
-										sx={{ display: "flex", alignItems: "center", gap: 1 }}
+										sx={{
+											display: "flex",
+											alignItems: "center",
+											gap: 1,
+										}}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<Avatar src={LunachowImg} alt="lunachow" />
+										<Avatar
+											src={LunachowImg}
+											alt="lunachow"
+										/>
 										<span>
 											Luchow Contract:
 											0xe4e8e6878718bfe533702d4a6571eb74d79b0915
@@ -129,24 +163,37 @@ const DashboardPage = () => {
 									</Link>
 									<Link
 										href="#"
-										sx={{ display: "flex", alignItems: "center", gap: 1 }}
+										sx={{
+											display: "flex",
+											alignItems: "center",
+											gap: 1,
+										}}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<Avatar src={ChainhowImg} alt="lunachow" />
+										<Avatar
+											src={ChainhowImg}
+											alt="lunachow"
+										/>
 										<span>
-											BUSD Contract: 0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56
+											BUSD Contract:
+											0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56
 										</span>
 									</Link>
 									<Link
 										href="#"
-										sx={{ display: "flex", alignItems: "center", gap: 1 }}
+										sx={{
+											display: "flex",
+											alignItems: "center",
+											gap: 1,
+										}}
 										target="_blank"
 										rel="noopener noreferrer"
 									>
 										<Avatar src={MlokyImg} alt="lunachow" />
 										<span>
-											MLOKY Contract: 0x11C97Fc75E1ecf0F7315c0f7c15cF94782795aE3
+											MLOKY Contract:
+											0x11C97Fc75E1ecf0F7315c0f7c15cF94782795aE3
 										</span>
 									</Link>
 								</Grid>
