@@ -7,30 +7,24 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import DashboardPage from "./pages/DashboardPage";
 import { Avatar, Button } from "@mui/material";
 import { useStyles } from "./styled";
 import RewardsCalculatorPage from "./pages/RewardsCalculatorPage";
-import LunachowLogo from "../../assets/images/lunachow.svg";
-import TagIcon from "@mui/icons-material/Tag";
-import LanguageIcon from "@mui/icons-material/Language";
-import DashboardIcon from "../../assets/images/menu-icon/dashboard.svg";
-import HashTagIcon from "../../assets/images/menu-icon/hashtag.svg";
-import BrowserIcon from "../../assets/images/menu-icon/browser.svg";
-import SwapIcon from "../../assets/images/menu-icon/swap.svg";
-import CalculatorIcon from "../../assets/images/menu-icon/calculator.svg";
 import { Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
+import DashboardIcon from "../../assets/images/menu-icon/DashboardIcon";
+import HashtagIcon from "../../assets/images/menu-icon/HashtagIcon";
+import BrowserIcon from "../../assets/images/menu-icon/BrowserIcon";
+import SwapIcon from "../../assets/images/menu-icon/SwapIcon";
+import CalculatorIcon from "../../assets/images/menu-icon/CalculatorIcon";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import LunachowLogo from "../../assets/images/logo.svg";
 
 // side mene width
 const drawerWidth = 280;
@@ -111,7 +105,7 @@ const Dashboard = (props) => {
 						{/* <ChevronRightIcon /> */}
 					</IconButton>
 
-					<Box>
+					<Box sx={{ width: "100%", textAlign: "right" }}>
 						<Button className={classes.connectBtn}>Connect</Button>
 					</Box>
 				</Toolbar>
@@ -145,7 +139,7 @@ const Dashboard = (props) => {
 				anchor="left"
 				open={open}
 			>
-				<DrawerHeader>
+				<DrawerHeader sx={{ px: 2 }}>
 					<Box
 						sx={{
 							display: "flex",
@@ -159,13 +153,13 @@ const Dashboard = (props) => {
 							src={LunachowLogo}
 							alt="logo"
 						/>
+
 						<Typography className={classes.logoText}>LUNACHOW </Typography>
 					</Box>
 					<IconButton onClick={handleDrawerClose}>
 						<MenuIcon />
 					</IconButton>
 				</DrawerHeader>
-				<Divider />
 
 				<Box px={2} mt={3} component="div" className={classes.menuIntro}>
 					Core
@@ -175,11 +169,7 @@ const Dashboard = (props) => {
 					<Link to="dashboard">
 						<ListItem button>
 							<ListItemIcon>
-								<Avatar
-									className={classes.menuIcon}
-									src={DashboardIcon}
-									alt="dashboard"
-								/>
+								<DashboardIcon />
 							</ListItemIcon>
 							<ListItemText className={classes.menuText}>
 								Dashboard
@@ -194,21 +184,16 @@ const Dashboard = (props) => {
 				<List>
 					<ListItem button>
 						<ListItemIcon>
-							<Avatar
-								className={classes.menuIcon}
-								src={HashTagIcon}
-								alt="dashboard"
-							/>
+							<HashtagIcon />
 						</ListItemIcon>
 						<ListItemText className={classes.menuText}>Socials</ListItemText>
+						<ListItemIcon>
+							<ChevronRightIcon />
+						</ListItemIcon>
 					</ListItem>
 					<ListItem button>
 						<ListItemIcon>
-							<Avatar
-								className={classes.menuIcon}
-								src={BrowserIcon}
-								alt="dashboard"
-							/>
+							<BrowserIcon />
 						</ListItemIcon>
 						<ListItemText className={classes.menuText}>Website</ListItemText>
 					</ListItem>
@@ -220,22 +205,14 @@ const Dashboard = (props) => {
 				<List>
 					<ListItem button>
 						<ListItemIcon>
-							<Avatar
-								className={classes.menuIcon}
-								src={SwapIcon}
-								alt="dashboard"
-							/>
+							<SwapIcon />
 						</ListItemIcon>
 						<ListItemText className={classes.menuText}>LuchowSwap</ListItemText>
 					</ListItem>
 					<Link to="rewards-calculator">
-						<ListItem button sx={{ mt: 1 }}>
+						<ListItem button>
 							<ListItemIcon>
-								<Avatar
-									className={classes.calculatorIcon}
-									src={CalculatorIcon}
-									alt="dashboard"
-								/>
+								<CalculatorIcon />
 							</ListItemIcon>
 
 							<ListItemText className={classes.menuText}>

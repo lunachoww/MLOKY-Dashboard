@@ -1,14 +1,20 @@
-import React from "react";
 import Dashboard from "./components/Dashboard";
 import { BrowserRouter } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+	typography: {
+		fontFamily: ["Montserrat", "sans-serif"].join(","),
+	},
+});
 
 const App = () => {
 	return (
-		<React.Fragment>
+		<ThemeProvider theme={theme}>
 			<BrowserRouter>
 				<Dashboard />
 			</BrowserRouter>
-		</React.Fragment>
+		</ThemeProvider>
 	);
 };
 

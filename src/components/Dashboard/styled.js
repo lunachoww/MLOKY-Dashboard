@@ -39,14 +39,15 @@ export const useStyles = makeStyles((theme) => ({
 	},
 
 	logoAvatar: {
-		width: "30px !important",
-		height: "30px !important",
+		width: "35px !important",
+		height: "35px !important",
 	},
 
 	logoText: {
 		textTransform: "uppercase",
 		color: "#E24717",
 		fontSize: "22px !important",
+		fontWeight: "600 !important",
 	},
 
 	menuIntro: {
@@ -69,6 +70,10 @@ export const useStyles = makeStyles((theme) => ({
 
 	menuText: {
 		color: "#7D7D7D",
+
+		"& span": {
+			fontWeight: 600,
+		},
 	},
 
 	// dashboardPage style
