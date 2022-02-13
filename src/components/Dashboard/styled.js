@@ -113,7 +113,7 @@ export const useStyles = makeStyles((theme) => ({
 		padding: "0 20px",
 		fontSize: 19,
 		color: "#FFFFFF",
-		fontWeight: 500,
+		fontWeight: "500 !important",
 	},
 
 	cardDesc: {

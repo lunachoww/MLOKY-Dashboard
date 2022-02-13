@@ -128,7 +128,7 @@ const RewardsCalculatorPage = () => {
 								<Typography className={classes.cardTitle} gutterBottom>
 									$BUSD/$LUCHOW not claimed:
 								</Typography>
-								<Box sx={{ justifyContent: "center" }}>
+								<Box sx={{ display: "flex", justifyContent: "center" }}>
 									<Typography
 										className={classes.cardDesc}
 										color="text.secondary"
