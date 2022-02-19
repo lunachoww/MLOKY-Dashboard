@@ -15,7 +15,11 @@ import { useStyles } from "../styled";
 import LunachowImg from "../../../assets/images/lunachow.png";
 import MlokyImg from "../../../assets/images/mloky.png";
 import ChainhowImg from "../../../assets/images/chain.png";
-import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import {
+	useMoralis,
+	useMoralisWeb3Api,
+	useWeb3ExecuteFunction,
+} from "react-moralis";
 // import Web3 from 'web3';
 import { Moralis } from "moralis";
 import Web3 from "web3";
@@ -34,6 +38,9 @@ const DashboardPage = () => {
 
 	const { user } = useMoralis();
 	const Web3API = useMoralisWeb3Api();
+	const { data, error, fetch } = useWeb3ExecuteFunction();
+
+	console.log(data, error);
 
 	useEffect(() => {
 		if (user) setEthAddress(user.get("ethAddress"));
@@ -70,17 +77,53 @@ const DashboardPage = () => {
 			// 	moralis.MLOKY_CONTRACT
 			// );
 
-			const contract = new Contract(
-				moralis.IBEP_20_ABI,
-				moralis.MLOKY_CONTRACT
-			);
+			const options = {
+				contactAddress: moralis.CONTRACT_ADDRESS,
+				functionName: "getUnpaidEarnings",
+				abi: [
+					{
+						inputs: [
+							{
+								internalType: "address",
+								name: "shareholder",
+								type: "address",
+							},
+						],
+						name: "getUnpaidEarnings",
+						outputs: [
+							{
+								internalType: "uint256",
+								name: "",
+								type: "uint256",
+							},
+						],
+						stateMutability: "view",
+						type: "function",
+					},
+				],
+				params: {
+					shareholder: moralis.MLOKY_CONTRACT,
+				},
+			};
 
-			await contract.methods
-				.balanceOf(moralis.MLOKY_CONTRACT)
-				.call(async (err, result) => {
-					console.log(result);
-					console.log(err);
-				});
+			await Moralis.enableWeb3();
+			console.log(ethAddress);
+
+			await fetch({
+				params: options,
+			});
+
+			// const contract = new Contract(
+			// 	moralis.IBEP_20_ABI,
+			// 	moralis.MLOKY_CONTRACT
+			// );
+
+			// await contract.methods
+			// 	.balanceOf(moralis.MLOKY_CONTRACT)
+			// 	.call(async (err, result) => {
+			// 		console.log(result);
+			// 		console.log(err);
+			// 	});
 
 			// const a = await Moralis.Web3API.native.runContractFunction({
 			// 	chain: "bsc",
@@ -95,8 +138,8 @@ const DashboardPage = () => {
 			// console.log(a);
 		};
 
-		getMloky();
-	}, [user]);
+		if (user && ethAddress) getMloky();
+	}, [user, ethAddress]);
 
 	return (
 		<Box>
