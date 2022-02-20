@@ -30,115 +30,106 @@ const DashboardPage = () => {
 	const classes = useStyles();
 
 	const [ethAddress, setEthAddress] = useState("");
+	const [mlokyBalance, setMlokyBalance] = useState(0);
+	const [busdBalance, setBusdBalance] = useState(0);
+	const [luchowBalance, setLuchowBalance] = useState(0);
+	const [totalDistributed, setTotalDistributed] = useState(0);
+	const [unpaidEarnings, setUnpaidEarnings] = useState(0);
 
 	Moralis.start({
 		appId: moralis.TEST_APP_ID,
 		serverUrl: moralis.TEST_SERVER_URL,
 	});
 
+	const getValues = async (userEthAddress) => {
+		const web3 = new Web3(window.ethereum);
+		await Moralis.enableWeb3();
+
+		const contract = new web3.eth.Contract(
+			moralis.ABI_CONTRACT,
+			moralis.CONTRACT_ADDRESS
+		);
+
+		await contract.methods.totalDistributed().call(async (err, result) => {
+			if (result) setTotalDistributed(result);
+			else console.log(err);
+		});
+
+		await contract.methods
+			.getUnpaidEarnings(userEthAddress)
+			.call(async (err, result) => {
+				if (result) setUnpaidEarnings(result);
+				else console.log(err);
+			});
+
+		const contractLuchow = new web3.eth.Contract(
+			moralis.IBEP_20_ABI,
+			moralis.LUCHOW_CONTRACT
+		);
+
+		await contractLuchow.methods
+			.balanceOf(userEthAddress)
+			.call(async (err, result) => {
+				if (result) setLuchowBalance(result);
+				else console.log(err);
+			});
+
+		const contractMloky = new web3.eth.Contract(
+			moralis.IBEP_20_ABI,
+			moralis.MLOKY_CONTRACT
+		);
+
+		await contractMloky.methods
+			.balanceOf(userEthAddress)
+			.call(async (err, result) => {
+				if (result) setMlokyBalance(result);
+				else console.log(err);
+			});
+
+		const contractBusd = new web3.eth.Contract(
+			moralis.IBEP_20_ABI,
+			moralis.BUSD_CONTRACT
+		);
+
+		await contractBusd.methods
+			.balanceOf(userEthAddress)
+			.call(async (err, result) => {
+				if (result) setBusdBalance(result);
+				else console.log(err);
+			});
+	};
+
+	const claimDividend = async (userEthAddress) => {
+		const web3 = new Web3(window.ethereum);
+		await Moralis.enableWeb3();
+
+		const contract = new web3.eth.Contract(
+			moralis.ABI_CONTRACT,
+			moralis.CONTRACT_ADDRESS
+		);
+
+		contract.methods
+			.claimDividend()
+			.send({ from: userEthAddress })
+			.then(function (resp) {
+				console.log(resp);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
+
 	const { user } = useMoralis();
 	const Web3API = useMoralisWeb3Api();
 	const { data, error, fetch } = useWeb3ExecuteFunction();
 
-	console.log(data, error);
-
 	useEffect(() => {
 		if (user) setEthAddress(user.get("ethAddress"));
 		else setEthAddress("");
-
-		// Web3API.account
-		// 	.getNativeBalance({
-		// 		chain: "eth",
-		// 		address: moralis.BUSD_CONTRACT,
-		// 	})
-		// 	.then((r) => console.log(r));
-
-		// Web3API.account
-		// 	.getNativeBalance({
-		// 		chain: "eth",
-		// 		address: moralis.LUCHOW_CONTRACT,
-		// 	})
-		// 	.then((r) => console.log(r));
-
-		// Web3API.account
-		// 	.getTokenBalances({
-		// 		chain: "eth",
-		// 		address: moralis.BUSD_CONTRACT,
-		// 	})
-		// 	.then((r) => console.log(r));
 	}, [user]);
 
 	useEffect(() => {
-		const getMloky = async () => {
-			// const web3 = new Web3();
-			// console.log(web3);
-			// const contract = new web3.eth.Contract(
-			// 	moralis.IBEP_20_ABI,
-			// 	moralis.MLOKY_CONTRACT
-			// );
-
-			const options = {
-				contactAddress: moralis.CONTRACT_ADDRESS,
-				functionName: "getUnpaidEarnings",
-				abi: [
-					{
-						inputs: [
-							{
-								internalType: "address",
-								name: "shareholder",
-								type: "address",
-							},
-						],
-						name: "getUnpaidEarnings",
-						outputs: [
-							{
-								internalType: "uint256",
-								name: "",
-								type: "uint256",
-							},
-						],
-						stateMutability: "view",
-						type: "function",
-					},
-				],
-				params: {
-					shareholder: moralis.MLOKY_CONTRACT,
-				},
-			};
-
-			await Moralis.enableWeb3();
-			console.log(ethAddress);
-
-			await fetch({
-				params: options,
-			});
-
-			// const contract = new Contract(
-			// 	moralis.IBEP_20_ABI,
-			// 	moralis.MLOKY_CONTRACT
-			// );
-
-			// await contract.methods
-			// 	.balanceOf(moralis.MLOKY_CONTRACT)
-			// 	.call(async (err, result) => {
-			// 		console.log(result);
-			// 		console.log(err);
-			// 	});
-
-			// const a = await Moralis.Web3API.native.runContractFunction({
-			// 	chain: "bsc",
-			// 	address: moralis.CONTRACT_ADDRESS,
-			// 	function_name: "balanceOf",
-			// 	abi: moralis.IBEP_20_ABI,
-			// 	params: {
-			// 		account: moralis.MLOKY_CONTRACT,
-			// 	},
-			// });
-
-			// console.log(a);
-		};
-
-		if (user && ethAddress) getMloky();
+		if (user && ethAddress) getValues(ethAddress);
 	}, [user, ethAddress]);
 
 	return (
@@ -170,7 +161,7 @@ const DashboardPage = () => {
 									className={classes.cardDesc}
 									color="text.secondary"
 								>
-									0
+									{mlokyBalance}
 								</Typography>
 							</CardContent>
 						</Card>
@@ -188,7 +179,9 @@ const DashboardPage = () => {
 									className={classes.cardDesc}
 									color="text.secondary"
 								>
-									0
+									$BUSD: {busdBalance}
+									<br />
+									$LUCHOW: {luchowBalance}
 								</Typography>
 							</CardContent>
 						</Card>
@@ -224,7 +217,7 @@ const DashboardPage = () => {
 									className={classes.cardDesc}
 									color="text.secondary"
 								>
-									0
+									{totalDistributed}
 								</Typography>
 							</CardContent>
 						</Card>
@@ -252,12 +245,19 @@ const DashboardPage = () => {
 											className={classes.cardDesc}
 											color="text.secondary"
 										>
-											0
+											{unpaidEarnings}
 										</Typography>
 									</Box>
 								</CardContent>
 								<CardActions>
-									<Button fullWidth size="small">
+									<Button
+										fullWidth
+										size="small"
+										onClick={() =>
+											claimDividend(ethAddress)
+										}
+										disabled={!Number(unpaidEarnings)}
+									>
 										Claim Now
 									</Button>
 								</CardActions>
