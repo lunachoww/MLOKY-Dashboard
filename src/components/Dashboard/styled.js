@@ -121,7 +121,7 @@ export const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		alignItems: "center",
 		padding: "0 20px",
-		fontSize: "31px !important",
+		fontSize: "1rem !important",
 		color: "#FFFFFF !important",
 		fontWeight: 500,
 	},

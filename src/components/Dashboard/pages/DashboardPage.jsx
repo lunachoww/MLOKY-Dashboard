@@ -157,7 +157,7 @@ const DashboardPage = () => {
 					className={classes.textField}
 					fullWidth
 					id="outlined-basic"
-					label="Wallet Address"
+					placeholder="Wallet Address"
 					variant="outlined"
 					value={ethAddress}
 					onChange={(e) => setEthAddress(e.target.value)}
@@ -169,16 +169,10 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography
-									className={classes.cardTitle}
-									gutterBottom
-								>
+								<Typography className={classes.cardTitle} gutterBottom>
 									$MLOKY Balance:
 								</Typography>
-								<Typography
-									className={classes.cardDesc}
-									color="text.secondary"
-								>
+								<Typography className={classes.cardDesc} color="text.secondary">
 									{mlokyBalance}
 								</Typography>
 							</CardContent>
@@ -187,16 +181,10 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography
-									className={classes.cardTitle}
-									gutterBottom
-								>
+								<Typography className={classes.cardTitle} gutterBottom>
 									$BUSD/$LUCHOW Balance:
 								</Typography>
-								<Typography
-									className={classes.cardDesc}
-									color="text.secondary"
-								>
+								<Typography className={classes.cardDesc} color="text.secondary">
 									$BUSD: {busdBalance}
 									<br />
 									$LUCHOW: {luchowBalance}
@@ -207,16 +195,10 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography
-									className={classes.cardTitle}
-									gutterBottom
-								>
+								<Typography className={classes.cardTitle} gutterBottom>
 									$BUSD/$LUCHOW Earnings:
 								</Typography>
-								<Typography
-									className={classes.cardDesc}
-									color="text.secondary"
-								>
+								<Typography className={classes.cardDesc} color="text.secondary">
 									{totalShares}
 								</Typography>
 							</CardContent>
@@ -225,16 +207,10 @@ const DashboardPage = () => {
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
-								<Typography
-									className={classes.cardTitle}
-									gutterBottom
-								>
+								<Typography className={classes.cardTitle} gutterBottom>
 									Total $BUSD/$LUCHOW Distributed:
 								</Typography>
-								<Typography
-									className={classes.cardDesc}
-									color="text.secondary"
-								>
+								<Typography className={classes.cardDesc} color="text.secondary">
 									{totalDistributed}
 								</Typography>
 							</CardContent>
@@ -247,10 +223,7 @@ const DashboardPage = () => {
 						<Grid item xs={12} lg={7}>
 							<Card className={classes.cardRoot}>
 								<CardContent>
-									<Typography
-										className={classes.cardTitle}
-										gutterBottom
-									>
+									<Typography className={classes.cardTitle} gutterBottom>
 										$BUSD/$LUCHOW not claimed:
 									</Typography>
 									<Box
@@ -271,12 +244,8 @@ const DashboardPage = () => {
 									<Button
 										fullWidth
 										size="small"
-										onClick={() =>
-											claimDividend(ethAddress)
-										}
-										disabled={
-											!Number(unpaidEarnings) || !user
-										}
+										onClick={() => claimDividend(ethAddress)}
+										disabled={!Number(unpaidEarnings) || !user}
 									>
 										Claim Now
 									</Button>
@@ -301,10 +270,7 @@ const DashboardPage = () => {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<Avatar
-											src={LunachowImg}
-											alt="lunachow"
-										/>
+										<Avatar src={LunachowImg} alt="lunachow" />
 										<span>
 											Luchow Contract:
 											0xe4e8e6878718bfe533702d4a6571eb74d79b0915
@@ -320,13 +286,9 @@ const DashboardPage = () => {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<Avatar
-											src={ChainhowImg}
-											alt="lunachow"
-										/>
+										<Avatar src={ChainhowImg} alt="lunachow" />
 										<span>
-											BUSD Contract:
-											0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56
+											BUSD Contract: 0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56
 										</span>
 									</Link>
 									<Link
@@ -341,8 +303,7 @@ const DashboardPage = () => {
 									>
 										<Avatar src={MlokyImg} alt="lunachow" />
 										<span>
-											MLOKY Contract:
-											0x11C97Fc75E1ecf0F7315c0f7c15cF94782795aE3
+											MLOKY Contract: 0x11C97Fc75E1ecf0F7315c0f7c15cF94782795aE3
 										</span>
 									</Link>
 								</Grid>
