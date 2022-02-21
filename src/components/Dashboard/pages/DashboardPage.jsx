@@ -147,8 +147,8 @@ const DashboardPage = () => {
 	}, [user]);
 
 	useEffect(() => {
-		if (user && ethAddress) getValues(ethAddress);
-	}, [user, ethAddress]);
+		if (ethAddress) getValues(ethAddress);
+	}, [ethAddress]);
 
 	return (
 		<Box>
