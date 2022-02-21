@@ -33,6 +33,7 @@ const DashboardPage = () => {
 	const [mlokyBalance, setMlokyBalance] = useState(0);
 	const [busdBalance, setBusdBalance] = useState(0);
 	const [luchowBalance, setLuchowBalance] = useState(0);
+	const [totalShares, setTotalShares] = useState(0);
 	const [totalDistributed, setTotalDistributed] = useState(0);
 	const [unpaidEarnings, setUnpaidEarnings] = useState(0);
 
@@ -55,11 +56,19 @@ const DashboardPage = () => {
 			else console.log(err);
 		});
 
+		await contract.methods.totalShares().call(async (err, result) => {
+			if (result) setTotalShares(result);
+			else console.log(err);
+		});
+
 		await contract.methods
 			.getUnpaidEarnings(userEthAddress)
 			.call(async (err, result) => {
 				if (result) setUnpaidEarnings(result);
-				else console.log(err);
+				else {
+					console.log(err);
+					setUnpaidEarnings(0);
+				}
 			});
 
 		const contractLuchow = new web3.eth.Contract(
@@ -71,7 +80,10 @@ const DashboardPage = () => {
 			.balanceOf(userEthAddress)
 			.call(async (err, result) => {
 				if (result) setLuchowBalance(result);
-				else console.log(err);
+				else {
+					console.log(err);
+					setLuchowBalance(0);
+				}
 			});
 
 		const contractMloky = new web3.eth.Contract(
@@ -83,7 +95,10 @@ const DashboardPage = () => {
 			.balanceOf(userEthAddress)
 			.call(async (err, result) => {
 				if (result) setMlokyBalance(result);
-				else console.log(err);
+				else {
+					console.log(err);
+					setMlokyBalance(0);
+				}
 			});
 
 		const contractBusd = new web3.eth.Contract(
@@ -95,7 +110,10 @@ const DashboardPage = () => {
 			.balanceOf(userEthAddress)
 			.call(async (err, result) => {
 				if (result) setBusdBalance(result);
-				else console.log(err);
+				else {
+					console.log(err);
+					setBusdBalance(0);
+				}
 			});
 	};
 
@@ -199,7 +217,7 @@ const DashboardPage = () => {
 									className={classes.cardDesc}
 									color="text.secondary"
 								>
-									0
+									{totalShares}
 								</Typography>
 							</CardContent>
 						</Card>
@@ -256,7 +274,9 @@ const DashboardPage = () => {
 										onClick={() =>
 											claimDividend(ethAddress)
 										}
-										disabled={!Number(unpaidEarnings)}
+										disabled={
+											!Number(unpaidEarnings) || !user
+										}
 									>
 										Claim Now
 									</Button>
