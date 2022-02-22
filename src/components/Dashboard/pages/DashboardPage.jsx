@@ -152,25 +152,34 @@ const DashboardPage = () => {
 
 	return (
 		<Box>
-			<Box mt={5}>
+			<Box mt={-3}>
+				<Grid container justifyContent="center">
+					<Grid item xs={12} lg={4}>
+						<Button fullWidth size="small" className={classes.migrateBtn}>
+							Migrate MLOKY
+						</Button>
+					</Grid>
+				</Grid>
+			</Box>
+			<Box mt={3}>
 				<TextField
 					className={classes.textField}
 					fullWidth
 					id="outlined-basic"
-					placeholder="Wallet Address"
-					variant="outlined"
+					label="Wallet Address"
+					variant="filled"
 					value={ethAddress}
 					onChange={(e) => setEthAddress(e.target.value)}
 				/>
 			</Box>
 
-			<Box my={4}>
+			<Box my={3}>
 				<Grid container spacing={2}>
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
 							<CardContent>
 								<Typography className={classes.cardTitle} gutterBottom>
-									$MLOKY Balance:
+									Your MLOKY Balance:
 								</Typography>
 								<Typography className={classes.cardDesc} color="text.secondary">
 									{mlokyBalance}
@@ -182,7 +191,7 @@ const DashboardPage = () => {
 						<Card className={classes.cardRoot}>
 							<CardContent>
 								<Typography className={classes.cardTitle} gutterBottom>
-									$BUSD/$LUCHOW Balance:
+									Your BUSD/LUCHOW Balance:
 								</Typography>
 								<Typography className={classes.cardDesc} color="text.secondary">
 									$BUSD: {busdBalance}
@@ -196,10 +205,12 @@ const DashboardPage = () => {
 						<Card className={classes.cardRoot}>
 							<CardContent>
 								<Typography className={classes.cardTitle} gutterBottom>
-									$BUSD/$LUCHOW Earnings:
+									Your Total Earnings (USD):
 								</Typography>
 								<Typography className={classes.cardDesc} color="text.secondary">
-									{totalShares}
+									$BUSD: {totalShares}
+									<br />
+									$LUCHOW: 13
 								</Typography>
 							</CardContent>
 						</Card>
@@ -208,23 +219,25 @@ const DashboardPage = () => {
 						<Card className={classes.cardRoot}>
 							<CardContent>
 								<Typography className={classes.cardTitle} gutterBottom>
-									Total $BUSD/$LUCHOW Distributed:
+									Total Distributed (USD):
 								</Typography>
 								<Typography className={classes.cardDesc} color="text.secondary">
-									{totalDistributed}
+									$BUSD: {totalDistributed}
+									<br />
+									$LUCHOW: 0
 								</Typography>
 							</CardContent>
 						</Card>
 					</Grid>
 				</Grid>
 
-				<Box my={10}>
+				<Box mt={5} mb={3}>
 					<Grid container justifyContent="center">
 						<Grid item xs={12} lg={7}>
 							<Card className={classes.cardRoot}>
 								<CardContent>
 									<Typography className={classes.cardTitle} gutterBottom>
-										$BUSD/$LUCHOW not claimed:
+										$BUSD/$LUCHOW not claimed (USD):
 									</Typography>
 									<Box
 										sx={{
@@ -236,7 +249,9 @@ const DashboardPage = () => {
 											className={classes.cardDesc}
 											color="text.secondary"
 										>
-											{unpaidEarnings}
+											$BUSD: {unpaidEarnings}
+											<br />
+											$LUCHOW: 0
 										</Typography>
 									</Box>
 								</CardContent>
@@ -255,7 +270,57 @@ const DashboardPage = () => {
 					</Grid>
 				</Box>
 
-				<Box my={10}>
+				{/*  under claim - vol & price*/}
+				<Box>
+					<Grid container justifyContent="center">
+						<Grid item xs={12} lg={7}>
+							<Grid container spacing={3}>
+								<Grid item xs={12} sm={6}>
+									<Card className={classes.miniCard}>
+										<CardContent>
+											<Typography
+												className={classes.miniCardTitle}
+												gutterBottom
+											>
+												MLOKY Market Vol (USD):
+											</Typography>
+											<Box>
+												<Typography
+													className={classes.miniCardDesc}
+													color="text.secondary"
+												>
+													205000
+												</Typography>
+											</Box>
+										</CardContent>
+									</Card>
+								</Grid>
+								<Grid item xs={12} sm={6}>
+									<Card className={classes.miniCard}>
+										<CardContent>
+											<Typography
+												className={classes.miniCardTitle}
+												gutterBottom
+											>
+												MLOKY Current Price (USD):
+											</Typography>
+											<Box>
+												<Typography
+													className={classes.miniCardDesc}
+													color="text.secondary"
+												>
+													0
+												</Typography>
+											</Box>
+										</CardContent>
+									</Card>
+								</Grid>
+							</Grid>
+						</Grid>
+					</Grid>
+				</Box>
+
+				<Box mt={5} mb={10}>
 					<Card className={classes.linkCard}>
 						<CardContent>
 							<Grid container justifyContent="center">

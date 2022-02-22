@@ -15,8 +15,8 @@ const RewardsCalculatorPage = () => {
 
 	return (
 		<Box>
-			<Box my={4}>
-				<Box sx={{ textAlign: "center", mb: 5 }}>
+			<Box my={3}>
+				<Box sx={{ textAlign: "center", mb: 2 }}>
 					<Typography variant="h4" color="white">
 						Rewards Calculator
 					</Typography>
@@ -68,7 +68,7 @@ const RewardsCalculatorPage = () => {
 				</Grid>
 			</Box>
 
-			<Box my={4}>
+			<Box my={3}>
 				<Grid container spacing={2}>
 					<Grid item xs={12} md={6} lg={3}>
 						<Card className={classes.cardRoot}>
@@ -120,7 +120,7 @@ const RewardsCalculatorPage = () => {
 					</Grid>
 				</Grid>
 			</Box>
-			<Box my={10}>
+			<Box mb={3} mt={5}>
 				<Grid container justifyContent="center">
 					<Grid item xs={12} lg={7}>
 						<Card className={classes.cardRoot}>
@@ -143,6 +143,50 @@ const RewardsCalculatorPage = () => {
 								</Button>
 							</CardActions>
 						</Card>
+					</Grid>
+				</Grid>
+			</Box>
+
+			{/*  under claim - vol & price*/}
+			<Box mb={10}>
+				<Grid container justifyContent="center">
+					<Grid item xs={12} lg={7}>
+						<Grid container spacing={3}>
+							<Grid item xs={12} sm={6}>
+								<Card className={classes.miniCard}>
+									<CardContent>
+										<Typography className={classes.miniCardTitle} gutterBottom>
+											MLOKY Market Vol (USD):
+										</Typography>
+										<Box>
+											<Typography
+												className={classes.miniCardDesc}
+												color="text.secondary"
+											>
+												205000
+											</Typography>
+										</Box>
+									</CardContent>
+								</Card>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<Card className={classes.miniCard}>
+									<CardContent>
+										<Typography className={classes.miniCardTitle} gutterBottom>
+											MLOKY Current Price (USD):
+										</Typography>
+										<Box>
+											<Typography
+												className={classes.miniCardDesc}
+												color="text.secondary"
+											>
+												0
+											</Typography>
+										</Box>
+									</CardContent>
+								</Card>
+							</Grid>
+						</Grid>
 					</Grid>
 				</Grid>
 			</Box>
