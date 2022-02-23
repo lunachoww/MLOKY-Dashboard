@@ -6,7 +6,7 @@ import { NodeGlobalsPolyfillPlugin } from "./node_modules/@esbuild-plugins/node-
 export default defineConfig({
 	define: {
 		"process.env": process.env,
-		global: "globalThis",
+		// global: "globalThis",
 	},
 	plugins: [react()],
 	optimizeDeps: {
