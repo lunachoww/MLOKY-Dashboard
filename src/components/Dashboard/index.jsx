@@ -16,8 +16,7 @@ import DashboardPage from "./pages/DashboardPage";
 import { Avatar, Button } from "@mui/material";
 import { useStyles } from "./styled";
 import RewardsCalculatorPage from "./pages/RewardsCalculatorPage";
-import { Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import DashboardIcon from "../../assets/images/menu-icon/DashboardIcon";
 import HashtagIcon from "../../assets/images/menu-icon/HashtagIcon";
 import BrowserIcon from "../../assets/images/menu-icon/BrowserIcon";
@@ -25,6 +24,10 @@ import SwapIcon from "../../assets/images/menu-icon/SwapIcon";
 import CalculatorIcon from "../../assets/images/menu-icon/CalculatorIcon";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import LunachowLogo from "../../assets/images/logo.svg";
+import { useMoralis } from "react-moralis";
+import DashboardIconNew from "../../assets/images/menu-icon/DashboardIconNew";
+import DailyVotesIcon from "../../assets/images/menu-icon/DailyVotesIcon";
+import EventIcon from "../../assets/images/menu-icon/EventIcon";
 
 // side mene width
 const drawerWidth = 280;
@@ -106,7 +109,22 @@ const Dashboard = (props) => {
 					</IconButton>
 
 					<Box sx={{ width: "100%", textAlign: "right" }}>
-						<Button className={classes.connectBtn}>Connect</Button>
+						{true ? (
+							<Button
+								className={classes.connectBtn}
+								// onClick={() => logout()}
+							>
+								Logout
+							</Button>
+						) : (
+							<Button
+								className={classes.connectBtn}
+								// onClick={() => authenticate()}
+								// disabled={isAuthenticating}
+							>
+								Connect
+							</Button>
+						)}
 					</Box>
 				</Toolbar>
 			</AppBar>
@@ -169,13 +187,21 @@ const Dashboard = (props) => {
 					<Link to="dashboard">
 						<ListItem button>
 							<ListItemIcon>
-								<DashboardIcon />
+								<DashboardIconNew />
 							</ListItemIcon>
 							<ListItemText className={classes.menuText}>
 								Dashboard
 							</ListItemText>
 						</ListItem>
 					</Link>
+					<ListItem button>
+						<ListItemIcon>
+							<DailyVotesIcon />
+						</ListItemIcon>
+						<ListItemText className={classes.menuText}>
+							Daily Votes
+						</ListItemText>
+					</ListItem>
 				</List>
 
 				<Box px={2} mt={3} component="div" className={classes.menuIntro}>
@@ -197,6 +223,12 @@ const Dashboard = (props) => {
 						</ListItemIcon>
 						<ListItemText className={classes.menuText}>Website</ListItemText>
 					</ListItem>
+					<ListItem button>
+						<ListItemIcon>
+							<EventIcon />
+						</ListItemIcon>
+						<ListItemText className={classes.menuText}>Events</ListItemText>
+					</ListItem>
 				</List>
 
 				<Box px={2} mt={3} component="div" className={classes.menuIntro}>
@@ -208,6 +240,14 @@ const Dashboard = (props) => {
 							<SwapIcon />
 						</ListItemIcon>
 						<ListItemText className={classes.menuText}>LuchowSwap</ListItemText>
+					</ListItem>
+					<ListItem button>
+						<ListItemIcon>
+							<SwapIcon />
+						</ListItemIcon>
+						<ListItemText className={classes.menuText}>
+							MLOKY Migration
+						</ListItemText>
 					</ListItem>
 					<Link to="rewards-calculator">
 						<ListItem button>

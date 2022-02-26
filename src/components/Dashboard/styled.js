@@ -77,6 +77,16 @@ export const useStyles = makeStyles((theme) => ({
 	},
 
 	// dashboardPage style
+
+	migrateBtn: {
+		background: "linear-gradient(1deg, #3F1205, #9B2602);",
+		fontSize: "19px !important",
+		color: "#FFFFFF !important",
+		textTransform: "capitalize !important",
+		fontWeight: 500,
+		padding: "20px 0 !important",
+	},
+
 	textField: {
 		background: "#FFFFFF",
 		borderRadius: 4,
@@ -85,10 +95,35 @@ export const useStyles = makeStyles((theme) => ({
 	// main card
 
 	cardRoot: {
+		height: "100% !important",
 		background: "#E24717 !important",
 
 		"& .MuiCardContent-root": {
 			padding: 0,
+			paddingBottom: "12px !important",
+		},
+
+		"& .MuiCardActions-root": {
+			padding: 0,
+
+			"& .MuiButton-root": {
+				background: "linear-gradient(180deg, #A52903, #E64716);",
+				fontSize: "19px !important",
+				color: "#FFFFFF",
+				textTransform: "Capitalize",
+				fontWeight: 500,
+				padding: "20px 0",
+			},
+		},
+	},
+
+	miniCard: {
+		height: "100% !important",
+		background: "#E24717 !important",
+
+		"& .MuiCardContent-root": {
+			padding: 0,
+			paddingBottom: "12px !important",
 		},
 
 		"& .MuiCardActions-root": {
@@ -109,19 +144,41 @@ export const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		alignItems: "center",
 		minHeight: 88,
-		background: "#C73306 !important",
+		background: "#A22904 !important",
 		padding: "0 20px",
 		fontSize: 19,
 		color: "#FFFFFF",
 		fontWeight: "500 !important",
 	},
 
+	miniCardTitle: {
+		display: "flex",
+		alignItems: "center",
+		minHeight: 45,
+		background: "#A22904 !important",
+		borderRadius: "5px",
+		padding: "0 20px",
+		fontSize: "15px !important",
+		color: "#FFFFFF",
+		fontWeight: "500 !important",
+	},
+
 	cardDesc: {
-		minHeight: 100,
+		minHeight: 60,
 		display: "flex",
 		alignItems: "center",
 		padding: "0 20px",
-		fontSize: "31px !important",
+		fontSize: "1rem !important",
+		color: "#FFFFFF !important",
+		fontWeight: 500,
+	},
+
+	miniCardDesc: {
+		minHeight: 25,
+		display: "flex",
+		alignItems: "center",
+		padding: "0 20px",
+		fontSize: "1rem !important",
 		color: "#FFFFFF !important",
 		fontWeight: 500,
 	},
