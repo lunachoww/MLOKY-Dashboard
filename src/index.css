@@ -1,7 +1,10 @@
 body {
-	margin: 0;
-	font-family: "Montserrat", sans-serif !important;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: #050100 !important;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(./assets/images/bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
