@@ -28,6 +28,10 @@ import { useMoralis } from "react-moralis";
 import DashboardIconNew from "../../assets/images/menu-icon/DashboardIconNew";
 import DailyVotesIcon from "../../assets/images/menu-icon/DailyVotesIcon";
 import EventIcon from "../../assets/images/menu-icon/EventIcon";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // side mene width
 const drawerWidth = 280;
@@ -208,14 +212,100 @@ const Dashboard = (props) => {
 					OTHER LINKS
 				</Box>
 				<List>
-					<ListItem button>
-						<ListItemIcon>
+					<ListItem className={classes.subListItem}>
+						{/* <ListItemIcon>
 							<HashtagIcon />
-						</ListItemIcon>
-						<ListItemText className={classes.menuText}>Socials</ListItemText>
-						<ListItemIcon>
+						</ListItemIcon> */}
+						{/* <ListItemText className={classes.menuText}>Socials</ListItemText> */}
+						{/* <ListItemIcon>
 							<ChevronRightIcon />
-						</ListItemIcon>
+						</ListItemIcon> */}
+						<Accordion>
+							<AccordionSummary
+								expandIcon={<ExpandMoreIcon />}
+								aria-controls="panel1a-content"
+								id="panel1a-header"
+							>
+								<HashtagIcon />
+								<Typography>Socials</Typography>
+							</AccordionSummary>
+							<AccordionDetails>
+								<List>
+									<ListItem button>
+										<a
+											href="https://t.me/LuChow"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Telegram</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://twitter.com/LunaChoww"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Twitter</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://www.facebook.com/LunaChowOfficial"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Facebook</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://www.pinterest.com/LunaChoww"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Pinterest</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://discord.gg/FBz7dGkxgv"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Discord</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="http://lunachow.slack.com/"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Slack</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://bitcointalk.org/index.php?action=profile;u=3359546;sa=account"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Bitcointalk</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://www.instagram.com/lunachow.io/"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemText>Instagram</ListItemText>
+										</a>
+									</ListItem>
+								</List>
+							</AccordionDetails>
+						</Accordion>
 					</ListItem>
 					<ListItem button>
 						<ListItemIcon>

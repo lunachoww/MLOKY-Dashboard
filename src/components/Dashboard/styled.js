@@ -225,4 +225,34 @@ export const useStyles = makeStyles((theme) => ({
 		fontSize: "19px !important",
 		color: "#767676",
 	},
+
+	// drawer styles
+	subListItem: {
+		"& .MuiPaper-root": {
+			width: "100%",
+			boxShadow: "none",
+
+			"& .MuiButtonBase-root": {
+				color: "#7d7d7d",
+
+				padding: 0,
+				"& .MuiAccordionSummary-content": {
+					gap: "32px !important",
+					"& .MuiTypography-root": {
+						fontWeight: 600,
+					},
+				},
+			},
+
+			"& .MuiAccordionDetails-root": {
+				padding: " 0px 0px 0px 54px",
+
+				"& .MuiList-root": {
+					"& .MuiTypography-root": {
+						color: "#7d7d7d !important",
+					},
+				},
+			},
+		},
+	},
 }));
