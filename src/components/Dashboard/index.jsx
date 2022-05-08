@@ -33,6 +33,16 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+// social icon
+import TelegramIcon from "@mui/icons-material/Telegram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import RedditIcon from "@mui/icons-material/Reddit";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import MaleIcon from "@mui/icons-material/Male";
+
 // side mene width
 const drawerWidth = 280;
 
@@ -237,7 +247,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Telegram</ListItemText>
+											<ListItemIcon>
+												<TelegramIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Telegram
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -246,7 +261,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Twitter</ListItemText>
+											<ListItemIcon>
+												<TwitterIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Twitter
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -255,7 +275,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Facebook</ListItemText>
+											<ListItemIcon>
+												<FacebookOutlinedIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Facebook
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -264,7 +289,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Pinterest</ListItemText>
+											<ListItemIcon>
+												<PinterestIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Pinterest
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -273,7 +303,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Discord</ListItemText>
+											<ListItemIcon>
+												<RedditIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Discord
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -282,7 +317,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Slack</ListItemText>
+											<ListItemIcon>
+												<MaleIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Slack
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -291,7 +331,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Bitcointalk</ListItemText>
+											<ListItemIcon>
+												<CurrencyExchangeIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Bitcointalk
+											</ListItemText>
 										</a>
 									</ListItem>
 									<ListItem button>
@@ -300,7 +345,12 @@ const Dashboard = (props) => {
 											target="_blank"
 											rel="noopener noreferrer"
 										>
-											<ListItemText>Instagram</ListItemText>
+											<ListItemIcon>
+												<InstagramIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Instagram
+											</ListItemText>
 										</a>
 									</ListItem>
 								</List>

@@ -245,13 +245,21 @@ export const useStyles = makeStyles((theme) => ({
 			},
 
 			"& .MuiAccordionDetails-root": {
-				padding: " 0px 0px 0px 54px",
+				// padding: " 0px 0px 0px 54px",
 
 				"& .MuiList-root": {
-					"& .MuiTypography-root": {
-						color: "#7d7d7d !important",
+					"& .MuiButtonBase-root": {
+						"& > a": {
+							display: "flex !important",
+							alignItems: "center",
+						},
 					},
 				},
+				// "& .MuiList-root": {
+				// 	"& .MuiTypography-root": {
+				// 		color: "#7d7d7d !important",
+				// 	},
+				// },
 			},
 		},
 	},
