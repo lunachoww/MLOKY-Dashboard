@@ -42,7 +42,8 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import MaleIcon from "@mui/icons-material/Male";
-
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { AiFillMediumCircle } from "react-icons/ai";
 // side mene width
 const drawerWidth = 280;
 
@@ -350,6 +351,36 @@ const Dashboard = (props) => {
 											</ListItemIcon>
 											<ListItemText className={classes.menuText}>
 												Instagram
+											</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://www.youtube.com/c/LunaChoww"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemIcon>
+												<YouTubeIcon />
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												YouTube
+											</ListItemText>
+										</a>
+									</ListItem>
+									<ListItem button>
+										<a
+											href="https://medium.com/@LunaChoww"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<ListItemIcon>
+												<AiFillMediumCircle
+													style={{ height: "1.5rem", width: "1.5rem" }}
+												/>
+											</ListItemIcon>
+											<ListItemText className={classes.menuText}>
+												Medium
 											</ListItemText>
 										</a>
 									</ListItem>
