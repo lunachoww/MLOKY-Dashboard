@@ -258,7 +258,7 @@ const Dashboard = (props) => {
 									</ListItem>
 									<ListItem button>
 										<a
-											href="https://twitter.com/LunaChoww"
+											href="https://twitter.com/LuchowSwap"
 											target="_blank"
 											rel="noopener noreferrer"
 										>
